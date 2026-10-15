@@ -1,0 +1,31 @@
+{
+  "name": "lightcone-feedback",
+  "version": "0.1.0",
+  "description": "Turn Lightcone beta feedback into concise, actionable GitHub issues.",
+  "author": {
+    "name": "Lightcone Research",
+    "url": "https://github.com/LightconeResearch"
+  },
+  "homepage": "https://github.com/LightconeResearch/feedback-skill#readme",
+  "repository": "https://github.com/LightconeResearch/feedback-skill",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "lightcone",
+    "feedback",
+    "beta",
+    "issues"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Lightcone Feedback",
+    "shortDescription": "Report Lightcone bugs and suggestions.",
+    "longDescription": "Prepare a concise report from the current session, check for duplicates, and submit approved feedback to the shared Lightcone beta inbox.",
+    "developerName": "Lightcone Research",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Help me report a problem with Lightcone."
+    ],
+    "websiteURL": "https://github.com/LightconeResearch/feedback-skill"
+  }
+}

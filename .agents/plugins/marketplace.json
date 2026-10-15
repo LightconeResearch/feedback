@@ -1,0 +1,20 @@
+{
+  "name": "lightcone-feedback",
+  "interface": {
+    "displayName": "Lightcone Feedback"
+  },
+  "plugins": [
+    {
+      "name": "lightcone-feedback",
+      "source": {
+        "source": "local",
+        "path": "./plugins/lightcone-feedback"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "lightcone-feedback",
+  "owner": {
+    "name": "Lightcone Research"
+  },
+  "metadata": {
+    "description": "Lightcone Research beta feedback plugin"
+  },
+  "plugins": [
+    {
+      "name": "lightcone-feedback",
+      "source": "./plugins/lightcone-feedback",
+      "description": "Turn Lightcone beta feedback into concise, actionable GitHub issues."
+    }
+  ]
+}
