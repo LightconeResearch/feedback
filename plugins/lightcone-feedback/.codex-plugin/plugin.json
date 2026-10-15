@@ -1,13 +1,13 @@
 {
   "name": "lightcone-feedback",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn Lightcone beta feedback into concise, actionable GitHub issues.",
   "author": {
     "name": "Lightcone Research",
     "url": "https://github.com/LightconeResearch"
   },
-  "homepage": "https://github.com/LightconeResearch/feedback-skill#readme",
-  "repository": "https://github.com/LightconeResearch/feedback-skill",
+  "homepage": "https://github.com/LightconeResearch/feedback#readme",
+  "repository": "https://github.com/LightconeResearch/feedback",
   "license": "BSD-3-Clause",
   "keywords": [
     "lightcone",
@@ -26,6 +26,6 @@
     "defaultPrompt": [
       "Help me report a problem with Lightcone."
     ],
-    "websiteURL": "https://github.com/LightconeResearch/feedback-skill"
+    "websiteURL": "https://github.com/LightconeResearch/feedback"
   }
 }

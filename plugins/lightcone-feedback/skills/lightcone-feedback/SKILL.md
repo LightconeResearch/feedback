@@ -9,7 +9,7 @@ license: BSD-3-Clause
 Help a maintainer investigate without another exchange with the tester. Use the
 current session first, ask only essential questions, and keep the report concise.
 
-**Feedback inbox:** `LightconeResearch/feedback-skill`. Send all beta feedback here;
+**Feedback inbox:** `LightconeResearch/feedback`. Send all beta feedback here;
 maintainers handle component routing. Name the affected product when known, without
 asking testers to diagnose dependencies. Respect an explicitly requested destination.
 Verify the inbox exists and accepts issues before posting; otherwise deliver a draft.
@@ -74,8 +74,8 @@ If GitHub access is available, check authentication without displaying credentia
 then verify the destination's canonical name, visibility, and issue availability:
 
 ```sh
-gh repo view LightconeResearch/feedback-skill --json nameWithOwner,url,isPrivate,hasIssuesEnabled
-gh issue list --repo LightconeResearch/feedback-skill --state all --search 'distinctive terms' --limit 10 --json number,title,url,state
+gh repo view LightconeResearch/feedback --json nameWithOwner,url,isPrivate,hasIssuesEnabled
+gh issue list --repo LightconeResearch/feedback --state all --search 'distinctive terms' --limit 10 --json number,title,url,state
 ```
 
 Read plausible matches before calling a report a duplicate, including whether a
@@ -114,7 +114,7 @@ Use a structured GitHub tool, or write the approved Markdown verbatim to a tempo
 UTF-8 file and pass its path to `gh`:
 
 ```sh
-gh issue create --repo LightconeResearch/feedback-skill --title 'Approved title' --body-file /path/to/temporary/issue.md
+gh issue create --repo LightconeResearch/feedback --title 'Approved title' --body-file /path/to/temporary/issue.md
 ```
 
 Use safely quoted arguments, never shell interpolation of report contents. Use

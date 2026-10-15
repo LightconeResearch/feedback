@@ -1,20 +1,20 @@
 # Lightcone feedback
 
-Report Lightcone bugs and suggestions from your agent session. The skill drafts an issue for your approval, then posts it to our [feedback inbox](https://github.com/LightconeResearch/feedback-skill/issues).
+Report Lightcone bugs and suggestions from your agent session. The skill drafts an issue for your approval, then posts it to our [feedback inbox](https://github.com/LightconeResearch/feedback/issues).
 
 ## Install as a plugin
 
 **Claude Code**
 
 ```sh
-claude plugin marketplace add LightconeResearch/feedback-skill
+claude plugin marketplace add LightconeResearch/feedback
 claude plugin install lightcone-feedback@lightcone-feedback
 ```
 
 **Codex**
 
 ```sh
-codex plugin marketplace add LightconeResearch/feedback-skill
+codex plugin marketplace add LightconeResearch/feedback
 codex plugin add lightcone-feedback@lightcone-feedback
 ```
 
@@ -23,8 +23,8 @@ codex plugin add lightcone-feedback@lightcone-feedback
 Requires Git and Python 3:
 
 ```sh
-git clone https://github.com/LightconeResearch/feedback-skill.git
-cd feedback-skill
+git clone https://github.com/LightconeResearch/feedback.git
+cd feedback
 python3 scripts/install.py --agent both
 ```
 
