@@ -1,6 +1,6 @@
 {
   "name": "lightcone-feedback",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Turn Lightcone beta feedback into concise, actionable GitHub issues.",
   "author": {
     "name": "Lightcone Research",

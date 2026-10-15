@@ -4,9 +4,9 @@ The installed skill uses the [repository map](../skills/lightcone-feedback/refer
 to file feedback in the appropriate component repository. Update that canonical
 reference when ownership changes, then run `python3 scripts/build_plugin.py`.
 
-`LightconeResearch/feedback` remains the fallback for unclear or cross-stack
-feedback and issues with the reporting skill itself. Keep one issue per report;
-link implementation work when it belongs elsewhere.
+Keep one issue per report in the main affected product. Documentation and
+publication styling follow that product; feedback about this reporting skill goes
+to agent-skills. Maintainers can link implementation work in other repositories.
 
 The mapped repositories have a `feedback` label. The reporting skill applies it
 when the reporter has permission and verifies the result. Outside contributors

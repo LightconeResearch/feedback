@@ -47,10 +47,10 @@ otherwise provide a sanitized draft and explain the limitation.
 
 ## Choose the repository and check duplicates
 
-Read [the repository map](references/repositories.md). Default to the product the
-tester used; choose a dependency repository only when existing evidence identifies
-it. Use `LightconeResearch/feedback` for unclear/cross-stack feedback or this skill.
-Respect an explicit destination; do not ask testers to diagnose ownership.
+Read [the repository map](references/repositories.md) and use its seven reporting
+destinations. Default to the product the tester used; include suspected dependency
+causes as evidence. Respect an explicit destination; do not ask testers to diagnose
+ownership.
 
 With available GitHub access, check authentication without exposing credentials,
 then verify the destination's canonical name, visibility, and issue availability.
