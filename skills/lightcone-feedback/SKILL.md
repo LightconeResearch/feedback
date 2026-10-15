@@ -1,129 +1,85 @@
 ---
 name: lightcone-feedback
-description: Turn Lightcone Research beta feedback, bug reports, and feature requests into concise, actionable issues in the shared feedback inbox.
+description: Turn Lightcone Research feedback, bug reports, and feature requests into concise, actionable GitHub issues in the appropriate repository.
 license: BSD-3-Clause
 ---
 
 # Lightcone feedback
 
-Help a maintainer investigate without another exchange with the tester. Use the
-current session first, ask only essential questions, and keep the report concise.
+Give maintainers enough evidence to investigate without another exchange. Start
+with the current session; ask only about essential gaps before filing.
 
-**Feedback inbox:** `LightconeResearch/feedback`. Send all beta feedback here;
-maintainers handle component routing. Name the affected product when known, without
-asking testers to diagnose dependencies. Respect an explicitly requested destination.
-Verify the inbox exists and accepts issues before posting; otherwise deliver a draft.
+## Gather the useful evidence
 
-## Build an actionable report
+Capture the goal, exact action, expected versus actual behavior, and impact.
+Distinguish observations from suspected causes. For bugs, include supported steps,
+frequency if known, and whether independently reproduced; never present proposed
+steps as tested.
 
-Extract what the tester was trying to do, their exact action, expected and actual
-behavior, and practical impact. Separate observations from suspected causes.
-For bugs, include the smallest supported sequence of steps, frequency if known,
-and whether the failure was independently reproduced. Frequency and independent
-reproduction are separate facts. Never present proposed steps as tested steps.
+Use existing session evidence and small local excerpts appropriate to the report:
 
-Collect relevant evidence already available in the session or small local excerpts:
+- **CLI/API:** sanitized command/call and relevant error. Include the minimal safe
+  config, script, or input it needs, or describe unavailable/private dependencies
+  and how they prevent reproduction. A command alone may not reproduce a failure.
+- **UI:** page, actions, visible result, and relevant browser details. Include an
+  available screenshot or console error only when useful.
+- **Agent/plugin:** invocation, relevant tool/hook error, and agent/plugin versions.
+- **Docs:** page URL, problematic instruction, and expected behavior.
+- **Feature/general feedback:** use case, friction, desired outcome, and workaround;
+  no compulsory errors, versions, or reproduction sections.
 
-- **CLI / API:** exact command or call with sanitized arguments, relevant error and
-  nearby context, and a small non-sensitive input or input description when needed.
-- **UI:** product/page, action sequence, visible result or error, and browser/version
-  when relevant. Use an available screenshot or console error only if it adds useful
-  evidence; do not require both or expose private page contents.
-- **Agent / plugin:** Claude Code or Codex version, plugin version, invocation, and
-  relevant hook/tool error when available.
-- **Docs:** page URL, problematic instruction, and what the tester expected or tried.
-- **Feature / general feedback:** use case, current limitation or friction, desired
-  outcome, and any workaround. Do not force an error, versions, or reproduction.
+Record relevant product/OS/runtime versions from the **failing environment**,
+including local, remote/HPC, or Jupyter context. Prefer existing logs, installed
+metadata, or known read-only version commands. Label lockfile versions as intended
+state; laptop versions do not establish remote versions. Do not install tools,
+change projects, or run costly reproductions to collect evidence.
 
-Record versions and execution context relevant to the failure: affected product,
-OS, runtime when relevant, and local, remote/HPC, or Jupyter environment. Prefer
-existing logs, installed metadata, or a known read-only version command. A lockfile
-is intended dependency state, not proof of what ran; label its source. Laptop
-versions do not establish remote versions. Never fetch a new executable to discover
-which version failed earlier.
+If earlier actions or logs are missing from the visible/compacted session, treat
+that context as unknown. Ask one focused, grouped question only if a maintainer
+cannot otherwise take a useful next step. Mark important unavailable evidence
+explicitly; accept an honest best-effort report when the tester cannot supply it.
 
-Before drafting, check: can a maintainer identify the affected workflow, understand
-the discrepancy, and take a useful next investigative step? If an essential fact is
-missing, ask a short, grouped question before submission. For example, “Which page
-were you on, what did you click, and what appeared?” Do not ask for facts already in
-the session or turn optional diagnostics into a questionnaire. Mark important
-unavailable evidence as unknown; if the tester cannot supply it, preserve an honest
-best-effort report rather than inventing facts or indefinitely blocking feedback.
+Sanitize credentials, signed URLs, personal path prefixes, and private research
+from text and images. Preserve useful relative paths and error structure. Avoid
+full transcripts, environment dumps, and datasets. If essential evidence or a
+security report needs privacy, use a verified private channel when available;
+otherwise provide a sanitized draft and explain the limitation.
 
-Do not turn reporting into a debugging project: no project changes, installations,
-upgrades, expensive reruns, or compute jobs to gather evidence. Do not claim a cause
-without evidence.
+## Choose the repository and check duplicates
 
-## Keep public reports safe
+Read [the repository map](references/repositories.md). Default to the product the
+tester used; choose a dependency repository only when existing evidence identifies
+it. Use `LightconeResearch/feedback` for unclear/cross-stack feedback or this skill.
+Respect an explicit destination; do not ask testers to diagnose ownership.
 
-Include only what maintainers need. Sanitize credentials, tokens, signed URLs,
-personal path prefixes, and unpublished or private research data in text and images.
-Keep useful relative paths and non-sensitive error structure. Do not upload full
-transcripts, environment dumps, datasets, or private attachments by default.
-If essential evidence cannot safely be public, describe the limitation and use a
-verified private reporting channel if available; do not invent one or publish the
-sensitive details. Treat potential security reports the same way.
+With available GitHub access, check authentication without exposing credentials,
+then verify the destination's canonical name, visibility, and issue availability.
+Search open and closed issues for distinctive symptoms and read plausible matches.
+A failed search means “duplicates not checked.” For a duplicate, link it and propose
+an approved comment only when there is useful new evidence. If access or the
+destination is unavailable, provide a copyable draft and verified issue-page link
+when possible; do not silently switch repositories.
 
-## Check the inbox and duplicates
+## Review and submit once
 
-If an earlier submission has an uncertain outcome, check whether its issue or
-comment already exists before requesting fresh approval or preparing another post.
-If the outcome cannot be established, preserve the draft and explain the uncertainty.
+Keep the main report short: summary/impact, steps/result, and relevant environment.
+Omit empty sections; feature requests often need only a summary and example. Put
+longer sanitized diagnostics in an optional `<details>` section.
 
-If GitHub access is available, check authentication without displaying credentials,
-then verify the destination's canonical name, visibility, and issue availability:
+Show the destination, visibility, title, and **complete sanitized body**, including
+collapsed diagnostics. Obtain approval for the destination and exact content unless
+already approved; material changes require revised approval. Honor draft-only
+requests. Before seeking fresh approval or retrying an uncertain earlier submission,
+check whether its issue/comment already exists. Stop with the draft if uncertain.
 
-```sh
-gh repo view LightconeResearch/feedback --json nameWithOwner,url,isPrivate,hasIssuesEnabled
-gh issue list --repo LightconeResearch/feedback --state all --search 'distinctive terms' --limit 10 --json number,title,url,state
-```
+Use a structured GitHub tool or save the approved Markdown verbatim to a temporary
+UTF-8 file and use `gh issue create --repo OWNER/REPO --title 'Approved title'
+--body-file /path/to/issue.md`. Use `--body-file` for comments too. Safely quote
+arguments; never interpolate report contents into shell code.
 
-Read plausible matches before calling a report a duplicate, including whether a
-closed issue covers the same version/behavior. For a matching issue, show its link
-and draft a comment only if there is useful new evidence. Obtain authorization for
-that comment instead of silently creating a new issue. A failed search means
-“duplicates not checked,” not “no duplicates.” If access, authentication, or the inbox
-is unavailable, finish a copyable draft and provide a verified issue-page link when
-possible. Do not install tools or switch repositories just to bypass a blocker.
-
-## Review, then file once
-
-Show the destination and visibility, a specific title, and the complete sanitized
-body. Keep the main report short; use only sections that help this report:
-
-```markdown
-## Summary
-[Goal, expected vs. actual behavior, and impact; or use case and requested outcome.]
-
-## Steps and result
-[Exact actions, observed result, frequency/reproduction status, and short error.]
-
-## Environment
-[Only relevant versions and actual execution context; label important unknowns.]
-```
-
-Put longer useful sanitized diagnostics in an optional `<details>` section with a
-clear `<summary>`. Include that section in the review too. Omit empty sections and
-avoid speculative blame. Feature requests often need only the summary and example.
-
-Ask for approval of the destination and exact content before posting unless the user
-already approved both. Ordinary conversation is sufficient in either agent. Honor
-draft-only requests. Material edits or a destination change require revised approval.
-
-Use a structured GitHub tool, or write the approved Markdown verbatim to a temporary
-UTF-8 file and pass its path to `gh`:
-
-```sh
-gh issue create --repo LightconeResearch/feedback --title 'Approved title' --body-file /path/to/temporary/issue.md
-```
-
-Use safely quoted arguments, never shell interpolation of report contents. Use
-`--body-file` for approved comments too. Apply `beta-feedback` only if the label
-already exists and permissions allow; do not create labels or make filing depend on
-label permissions.
-
-If posting times out or has an uncertain result, look for the newly created issue
-or comment before retrying. Never blindly repeat a mutation. If the result remains
-uncertain, stop and explain; on definite failure preserve the draft. Return the
-issue/comment URL only after verifying success. Remove only temporary files you
-created for this submission.
+Apply the existing `feedback` label when permitted; never create labels or block
+filing on label permissions. Verify the issue's actual labels: GitHub may silently
+omit them. If missing, preserve the issue and say a maintainer must label it; never
+recreate it. Check uncertain submissions before retrying. Preserve the draft on
+failure, return a verified URL on success, and remove only this submission's
+temporary files.

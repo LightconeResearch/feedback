@@ -1,6 +1,6 @@
 # Lightcone feedback
 
-Report Lightcone bugs and suggestions from your agent session. The skill drafts an issue for your approval, then posts it to our [feedback inbox](https://github.com/LightconeResearch/feedback/issues).
+Report Lightcone bugs and suggestions from your agent session. The skill drafts an issue for your approval, then routes it to the appropriate Lightcone repository and applies a `feedback` label when permitted.
 
 ## Install as a plugin
 
