@@ -8,7 +8,6 @@ license: BSD-3-Clause
 
 Help a maintainer investigate without another exchange with the tester. Use the
 current session first, ask only essential questions, and keep the report concise.
-Works in Claude Code and Codex with conversation and a GitHub tool or `gh`.
 
 **Feedback inbox:** `LightconeResearch/feedback-skill`. Send all beta feedback here;
 maintainers handle component routing. Name the affected product when known, without
