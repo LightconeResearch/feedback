@@ -27,24 +27,6 @@ which part of the stack you were using, what you did, what you expected and
 what happened. For a bug, add the versions and the error. Leave out
 credentials, tokens and unpublished research.
 
-## Moving from the old plugin
-
-This repository used to ship a `lightcone-feedback` plugin. The skill now lives
-in the `lightcone` plugin, so if you installed the old one, remove it. In
-Claude Code:
-
-```bash
-claude plugin uninstall lightcone-feedback@lightcone-feedback
-claude plugin marketplace remove lightcone-feedback
-```
-
-Remove the `lightcone-feedback` plugin and marketplace from Codex the same way.
-If you installed it with this repository's old install script, delete
-`~/.claude/skills/lightcone-feedback` and `~/.agents/skills/lightcone-feedback`
-instead. Then install the `lightcone` plugin as the
-[Agent Skills docs](https://docs.lightconeresearch.org/agent-skills/getting-started)
-describe.
-
 ## License
 
 BSD 3-Clause. See [LICENSE](LICENSE).
