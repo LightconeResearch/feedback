@@ -1,37 +1,32 @@
 # Lightcone feedback
 
-Report Lightcone bugs and suggestions from your agent session. The skill drafts an issue for your approval, then routes it to the appropriate Lightcone repository and applies a `feedback` label when permitted.
+This is where bug reports, feature requests and other feedback on the
+[Lightcone Research](https://github.com/LightconeResearch) stack go: `lc`,
+Lightcone Lab, ASTRA, MySTRA, the docs and the agent skills. Open an issue
+here for any of them, and the maintainers will take it to the right project.
 
-## Install as a plugin
+## Report from your agent
 
-**Claude Code**
+The `lightcone` plugin from
+[agent-skills](https://github.com/LightconeResearch/agent-skills) includes a
+`feedback` skill. Tell your agent:
 
-```sh
-claude plugin marketplace add LightconeResearch/feedback
-claude plugin install lightcone-feedback@lightcone-feedback
+```text
+Report this to the Lightcone team.
 ```
 
-**Codex**
+It drafts an issue here from what happened in the session, shows it to you,
+and files it once you approve. It uses the [GitHub CLI](https://cli.github.com/)
+(`gh`). The [Agent Skills docs](https://docs.lightconeresearch.org/agent-skills)
+explain how to install the plugin.
 
-```sh
-codex plugin marketplace add LightconeResearch/feedback
-codex plugin add lightcone-feedback@lightcone-feedback
-```
+## Report by hand
 
-## Install from this repo
+[Open an issue](https://github.com/LightconeResearch/feedback/issues/new). Say
+which part of the stack you were using, what you did, what you expected and
+what happened. For a bug, add the versions and the error. Leave out
+credentials, tokens and unpublished research.
 
-Requires Git and Python 3:
+## License
 
-```sh
-git clone https://github.com/LightconeResearch/feedback.git
-cd feedback
-python3 scripts/install.py --agent both
-```
-
-Use `--agent claude` or `--agent codex` to install for just one.
-
-## Use
-
-Install the [GitHub CLI (`gh`)](https://cli.github.com/) where your agent runs and sign in with `gh auth login` so it can submit issues directly. No repo clone is needed for submission.
-
-Start a new agent session and ask: **“Use Lightcone Feedback to report this: …”**
+BSD 3-Clause. See [LICENSE](LICENSE).
